@@ -1,0 +1,18 @@
+---
+import { FULL_NAME } from 'src/consts';
+import { SocialLinks } from './SocialLinks';
+
+const today = new Date();
+const {pathname} = Astro.url;
+
+---
+
+<footer class="py-2">
+	<div class="flex flex-row justify-between items-center gap-2 text-xs">
+		<p>&copy; {today.getFullYear()} {FULL_NAME}. All rights reserved.</p>
+		<p>Created by <a href="https://lucasverdiell.xyz" target="_blank" class="underlined">LEV</a></p>
+		</div>
+
+			<SocialLinks className={'flex justify-center items-center gap-2'} pathname={pathname} client:load />
+	
+</footer>
