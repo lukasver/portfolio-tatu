@@ -5,6 +5,7 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
+    --background-pastel: 14 100% 97%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
@@ -27,7 +28,8 @@
   }
 
   .dark {
-    --background: 0 0% 3.9%;
+    --background: 0 0% 4%;
+    --background-pastel: 14 100% 97%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -56,6 +58,15 @@
     }
     @apply relative inline-flex cursor-pointer overflow-hidden after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:translate-x-[-100%] after:bg-primary after:transition-all hover:after:translate-x-0 focus:after:translate-x-0;
   }
+  .no-underlined {
+    ::after {
+      content: none !important;
+    }
+    @apply after:hidden;
+  }
+  .main-container {
+    @apply h-full w-full;
+  }
 }
 
 @layer base {
@@ -83,5 +94,9 @@
   a,
   button {
     @apply font-sans;
+  }
+
+  a {
+    @apply underlined;
   }
 }

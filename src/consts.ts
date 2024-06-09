@@ -21,6 +21,10 @@ export const NAVIGATION = [
     url: '/resume',
   },
   {
+    title: 'Portfolio',
+    url: '/portfolio',
+  },
+  {
     title: 'My thoughts',
     url: '/blog',
   },

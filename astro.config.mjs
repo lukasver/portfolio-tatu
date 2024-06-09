@@ -5,9 +5,12 @@ import tailwind from '@astrojs/tailwind';
 
 import react from '@astrojs/react';
 
+import vercel from '@astrojs/vercel/serverless';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://taniageuna.com',
+  output: 'server',
   integrations: [
     mdx(),
     sitemap(),
@@ -17,4 +20,7 @@ export default defineConfig({
     }),
     react(),
   ],
+  adapter: vercel({
+    webAnalytics: { enabled: true },
+  }),
 });

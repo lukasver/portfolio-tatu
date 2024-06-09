@@ -17,7 +17,7 @@ function SocialLinks({ className }: Props) {
             href={url}
             target='_blank'
             key={url}
-            className={cn(
+            className={cn('no-underlined',
               buttonVariants({
                 size: 'lg',
                 variant: 'outline',

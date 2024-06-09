@@ -13,6 +13,6 @@ const isActive = href === pathname || href === '/' + subpath?.[0];
 
 ---
 
-<a href={href} class:list={["uppercase",buttonVariants({variant: 'link'}),className, { "text-black cursor-default pointer-events-none": isActive }]} {...props}>
+<a href={href} class:list={["uppercase",buttonVariants({variant: 'link'}),className, { "!text-black cursor-default pointer-events-none": isActive }]} {...props}>
 	<slot />
 </a>

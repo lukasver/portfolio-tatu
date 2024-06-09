@@ -3,35 +3,35 @@ import { Button } from '@components/ui/button';
 import { Card } from '@components/ui/card';
 import { HERO_ONELINER } from 'src/consts';
 import { SITE_DESCRIPTION,SITE_SUBTITLE } from 'src/consts';
-import { Separator } from './ui/separator';
 import { BorderBeam } from './BorderBeam';
 import { Particles } from '@components/ui/particles';
 
 ---
 
-<main class="h-[calc(100vh-160px)] w-full grid place-content-center">
+<main class="h-full w-full grid place-content-center">
   <Particles
   client:idle
-  className="absolute inset-0"
+  className="absolute inset-0 -z-10"
   quantity={1000}
   ease={80}
   color={'#000000'}
   refresh
 />
-  <div class="flex flex-col sm:flex-row gap-2 max-w-[90%] mx-auto mb-40 relative p-4 rounded-3xl">
-    <BorderBeam/>
-    <Card className="grid place-content-center flex-[2] border-none p-20 shadow-none">
+  <div class="flex flex-col-reverse lg:flex-row gap-2 max-w-[90%] mx-auto 2xl:mb-40 relative p-4 rounded-3xl items-center">
+    <Card className="grid place-content-center flex-[2] border-none m-auto p-4 shadow-none relative sm:mt-8 md:mt-0">
+      <BorderBeam/>
       <div class="flex flex-col gap-6">
+
       <h1 class="text-5xl">{HERO_ONELINER}</h1>
       <h2 class="text-2xl">{SITE_SUBTITLE}</h2>
       <p>{SITE_DESCRIPTION}</p>
       <div class="flex justify-start items-center max-w">
-      <Button client:idle>Get in touch</Button>
+      <a href="/contact" class="no-underlined"><Button client:load className="z-50">Get in touch</Button></a>
     </div>
     </div>
     </Card>
     <!-- <Separator orientation="vertical"/> -->
-    <picture class="relative image-glow aspect-square grid place-content-center bg-cover">
+    <picture class="relative aspect-[4/3] grid place-content-center">
   <!-- image section -->
       <!-- <img src="/public/avatar.jpg" alt="photo" class="w-80 h-[340px] rounded-full"/> -->
     </picture>
@@ -40,6 +40,7 @@ import { Particles } from '@components/ui/particles';
 </main>
 <style>
   picture{
+    flex-shrink: 0;
     background: url('/public/avatar.jpg');
     width: 320px;
     height: 340px;
