@@ -6,12 +6,21 @@ import { ContactForm } from '@/components/ContactForm';
 import { ShineBorder } from '@/components/ui/shine-pulse';
 import { EMAIL } from '@/config/consts';
 import { AnimatedShinyText } from '@/components/ui/shiny-text';
+import { Particles } from '@/components/ui/particles';
 
 const mode = import.meta.env.MODE;
 ---
 
 <Layout title='Contact' description='Lorem ipsum dolor sit amet'>
-  <main class='main-container sm:grid sm:place-content-center'>
+  <main class='main-container sm:grid sm:place-content-center relative'>
+    <Particles
+      client:idle
+      className='absolute inset-0 -z-10'
+      quantity={1000}
+      ease={80}
+      color={'#000000'}
+      refresh
+    />
     <div class='grid grid-cols-1 m-4 sm:0'>
       <ShineBorder color={['#dc2626', '#D2B48C', '#FFBE7B', '#fff6f4']}>
         <section>
@@ -25,7 +34,6 @@ const mode = import.meta.env.MODE;
             </a>
           </div>
           <div class='my-4 flex flex-row gap-2 items-center justify-center'>
-            <a href='tel:+351968855958'>+351 96 8855958</a>
             <a href='https://api.whatsapp.com/send?phone=351968855958'
               ><Icons.Whatsapp /></a
             >

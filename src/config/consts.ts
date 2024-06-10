@@ -7,7 +7,7 @@ export const LASTNAME = 'Geuna';
 export const FULL_NAME = `${NAME} ${LASTNAME}`;
 export const SITE_DESCRIPTION = `Labore tempor quis aute consequat amet enim aute id aliquip fugiat est ullamco ullamco. Labore laborum dolor ut dolor duis sit. Amet dolore culpa velit dolore enim Lorem. Esse veniam eiusmod pariatur ea eiusmod ut Lorem. Adipisicing proident excepteur fugiat excepteur ullamco enim commodo. Incididunt sint ut magna pariatur ea.`;
 export const SITE_SUBTITLE = `Tempor aliqua nulla irure.`;
-export const EMAIL = 'taniageuna@gmail.com';
+export const EMAIL = 'taniamgeuna@gmail.com';
 
 export const HERO_ONELINER =
   'Incididunt sit officia aliqua fugiat mollit exercitation sit.';

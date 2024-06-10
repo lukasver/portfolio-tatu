@@ -30,7 +30,10 @@ function ContactForm({ className, mode }: Props) {
 
   const onSubmit: SubmitHandler<ContactFormSchema> = (_data) => {
     setTimer(60);
-    toast.success('Message sent 🎉!');
+    toast.success('Message sent 🎉!', {
+      description: 'Thank you, I will get back to you asap!',
+      duration: 15_000,
+    });
     interval.current = setInterval(() => setTimer((pv) => pv - 1), 1000);
   };
 
@@ -52,15 +55,15 @@ function ContactForm({ className, mode }: Props) {
 
   return (
     <Card className={cn(className, 'relative p-8 border-none shadow-none')}>
-      <Toaster position='top-center' />
+      <Toaster position='top-right' toastOptions={{ closeButton: true }} />
       <Form {...form}>
         <form
           // method='POST'
-          className='flex flex-col gap-4'
+          className='flex flex-col gap-1'
           onSubmit={form.handleSubmit(onSubmit, onInvalid)}
         >
           {mode !== 'production' && <DevTool control={form.control} />}
-          <div className='flex flex-row gap-4'>
+          <div className='flex flex-row gap-1'>
             <FormInput
               control={form.control}
               label='Name'
@@ -94,7 +97,7 @@ function ContactForm({ className, mode }: Props) {
             />
           </div>
           <Button
-            className='w-full'
+            className='w-full mt-2'
             type='submit'
             onClick={() => console.log('clicked')}
             disabled={!!timer || form.formState.isSubmitting}
@@ -103,7 +106,7 @@ function ContactForm({ className, mode }: Props) {
           </Button>
           {!!timer && (
             <p className='text-muted-foreground text-xs text-center'>
-              Disabled for {timer} seconds
+              ✅ Message sent! You can send another message in {timer} seconds.
             </p>
           )}
         </form>
