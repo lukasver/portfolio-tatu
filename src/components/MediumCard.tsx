@@ -1,5 +1,5 @@
 import { Card } from './ui/card';
-import type { MediumFeed } from '@lib/types';
+import type { MediumFeed } from '@/lib/types';
 
 function MediumCard(props: MediumFeed['items'][number]) {
   const { title, link, thumbnail, description } = props;
@@ -20,6 +20,7 @@ function MediumCard(props: MediumFeed['items'][number]) {
             rel='nofollow noopener noreferrer'
             className='text-xs font-bold'
             href={link}
+            target='_blank'
           >
             See more...
           </a>

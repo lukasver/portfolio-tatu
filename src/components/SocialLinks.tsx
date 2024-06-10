@@ -1,7 +1,7 @@
 import { SOCIAL_NETWORKS } from 'src/consts';
 import { Icons } from './ui/icons';
 import { buttonVariants } from './ui/button';
-import { cn } from '@lib/utils';
+import { cn } from '@/lib/utils';
 
 type Props = {
   className?: string;
@@ -17,7 +17,8 @@ function SocialLinks({ className }: Props) {
             href={url}
             target='_blank'
             key={url}
-            className={cn('no-underlined',
+            className={cn(
+              'no-underlined',
               buttonVariants({
                 size: 'lg',
                 variant: 'outline',

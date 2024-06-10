@@ -1,4 +1,4 @@
-import { Linkedin, type LucideIcon } from 'lucide-react';
+import { Linkedin, Menu, type LucideIcon } from 'lucide-react';
 
 export type Icon = React.ComponentProps<LucideIcon>;
 
@@ -56,6 +56,7 @@ export const Icons = {
       </g>
     </svg>
   ),
+  Menu: Menu,
 
   // sun: SunMedium,
   // moon: Moon,

@@ -2,6 +2,7 @@
 import HeaderLink from './HeaderLink.astro';
 import { FULL_NAME, NAVIGATION } from '../consts';
 import { Separator } from './ui/separator';
+import {MobileNav} from '@/components/ui/navbar';
 
 ---
 
@@ -10,7 +11,7 @@ import { Separator } from './ui/separator';
 		<div class="flex-0">
 		<h2 class="text-xl font-header font-semibold"><a href="/">{FULL_NAME}</a></h2>
 	  </div>
-		<div class="flex flex-row gap-1 items-center justify-end flex-1 ">
+		<div class="hidden sm:flex flex-row gap-1 items-center justify-end flex-1 ">
 			{NAVIGATION.map(({title,url},index)=> (
 			<div class="flex flex-row gap-1">
 				<HeaderLink href={url}>{title}</HeaderLink>
@@ -19,6 +20,9 @@ import { Separator } from './ui/separator';
 			</div>
 		</div>
 				))}
+		</div>
+		<div class="sm:hidden">
+			<MobileNav client:load links={NAVIGATION} title='Know more' description='Checkout my projects'/>
 		</div>
 	</nav>
 	<Separator/>

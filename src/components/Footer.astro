@@ -2,18 +2,15 @@
 import { FULL_NAME } from 'src/consts';
 import { SocialLinks } from './SocialLinks';
 import { Separator } from './ui/separator';
+import Copyright from './Copyright';
 
-
-const today = new Date();
-const {pathname} = Astro.url;
 
 ---
 
-<footer class="mt-2 bg-background-pastel/70 fixed bottom-0 left-0 right-0">
+<footer class="mt-2 bg-background-pastel/70 block sm:fixed bottom-0 left-0 right-0">
 	<Separator/>
-	<div class="pt-2 px-4 md:px-16 mx-auto max-w-screen-2xl flex flex-row justify-between items-center gap-2 text-xs">
-		<p>&copy; {today.getFullYear()} {FULL_NAME}. All rights reserved.</p>
-		<p>By <a href="https://lucasverdiell.xyz" target="_blank" class="underlined">LEV</a></p>
-		</div>
-			<SocialLinks className={'-mt-4 flex justify-center items-center gap-2 mb-2'} client:idle />
+	<div class="hidden sm:block">
+	<Copyright/>
+  </div>
+	<SocialLinks className={'py-2 sm:py-0 sm:-mt-4 flex justify-center items-center gap-2 sm:mb-2'} client:idle />
 </footer>
