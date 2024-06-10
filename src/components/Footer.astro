@@ -1,16 +1,18 @@
 ---
-import { FULL_NAME } from 'src/consts';
 import { SocialLinks } from './SocialLinks';
 import { Separator } from './ui/separator';
 import Copyright from './Copyright';
-
-
 ---
 
-<footer class="mt-2 bg-background-pastel/70 block sm:fixed bottom-0 left-0 right-0">
-	<Separator/>
-	<div class="hidden sm:block">
-	<Copyright/>
+<footer
+  class='mt-2 bg-background-pastel/70 block sm:fixed bottom-0 left-0 right-0'
+>
+  <Separator />
+  <div class='hidden sm:block'>
+    <Copyright />
   </div>
-	<SocialLinks className={'py-2 sm:py-0 sm:-mt-4 flex justify-center items-center gap-2 sm:mb-2'} client:idle />
+  <SocialLinks
+    className={'py-2 sm:py-0 sm:-mt-4 flex justify-center items-center gap-2 sm:mb-2'}
+    client:idle
+  />
 </footer>

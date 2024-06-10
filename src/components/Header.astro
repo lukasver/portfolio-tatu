@@ -1,29 +1,43 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { FULL_NAME, NAVIGATION } from '../consts';
+import { FULL_NAME, NAVIGATION } from '@/config/consts';
 import { Separator } from './ui/separator';
-import {MobileNav} from '@/components/ui/navbar';
-
+import { MobileNav } from '@/components/ui/navbar';
 ---
 
-<header class="z-50 m-0 p-0 bg-background-pastel shadow-[0 2px 8px rgba(var(--black), 5%)]">
-	<nav class="mx-auto max-w-screen-2xl flex items-center justify-between py-4 px-4 md:px-16 gap-2">
-		<div class="flex-0">
-		<h2 class="text-xl font-header font-semibold"><a href="/">{FULL_NAME}</a></h2>
-	  </div>
-		<div class="hidden sm:flex flex-row gap-1 items-center justify-end flex-1 ">
-			{NAVIGATION.map(({title,url},index)=> (
-			<div class="flex flex-row gap-1">
-				<HeaderLink href={url}>{title}</HeaderLink>
-				<div class="shrink-0">
-				{NAVIGATION?.length -1 !== index && <Separator orientation="vertical"/>}
-			</div>
-		</div>
-				))}
-		</div>
-		<div class="sm:hidden">
-			<MobileNav client:load links={NAVIGATION} title='Know more' description='Checkout my projects'/>
-		</div>
-	</nav>
-	<Separator/>
+<header
+  class='z-50 m-0 p-0 bg-background-pastel shadow-[0 2px 8px rgba(var(--black), 5%)]'
+>
+  <nav
+    class='mx-auto max-w-screen-2xl flex items-center justify-between py-4 px-4 md:px-16 gap-2'
+  >
+    <div class='flex-0'>
+      <h2 class='text-xl font-header font-semibold'>
+        <a href='/'>{FULL_NAME}</a>
+      </h2>
+    </div>
+    <div class='hidden sm:flex flex-row gap-1 items-center justify-end flex-1'>
+      {
+        NAVIGATION.map(({ title, url }, index) => (
+          <div class='flex flex-row gap-1'>
+            <HeaderLink href={url}>{title}</HeaderLink>
+            <div class='shrink-0'>
+              {NAVIGATION?.length - 1 !== index && (
+                <Separator orientation='vertical' />
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <div class='sm:hidden'>
+      <MobileNav
+        client:load
+        links={NAVIGATION}
+        title='Know more'
+        description='Checkout my projects'
+      />
+    </div>
+  </nav>
+  <Separator />
 </header>

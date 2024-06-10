@@ -1,4 +1,4 @@
-import { SOCIAL_NETWORKS } from 'src/consts';
+import { SOCIAL_NETWORKS } from '@/config/consts';
 import { Icons } from './ui/icons';
 import { buttonVariants } from './ui/button';
 import { cn } from '@/lib/utils';

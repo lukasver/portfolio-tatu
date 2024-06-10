@@ -1,70 +1,87 @@
 ---
+import { AnimatedShinyText } from '@/components/ui/shiny-text';
 import { getMediumData } from '@/lib/functions';
-import {MediumCard} from '@/components/MediumCard';
+import { MediumCard } from '@/components/MediumCard';
 import Layout from '../layouts/Layout.astro';
 import { Particles } from '@/components/ui/particles';
-
-
+import { Card } from '@/components/ui/card';
 
 const mediumData = await getMediumData();
 
 const SOCIAL_MEDIA_LINKS = [
-	{title: 'Focus desarrollos',url:'https://https://focusdesarrollos.com.ar'},
-	{title: 'Smat',url:'https://smat.io'},
-	{title: 'Bank of Chain',url:'https://https://bankofchain.io'},
-]
+  {
+    title: 'Focus desarrollos',
+    url: 'https://https://focusdesarrollos.com.ar',
+  },
+  { title: 'Smat', url: 'https://smat.io' },
+  { title: 'Bank of Chain', url: 'https://https://bankofchain.io' },
+];
 
 const OTHER_PROJECT_LINKS = [
-	{title: 'Brochures Focus',url:'https://https://focusdesarrollos.com.ar'},
-	{title: 'Wedding website Marie & Anthony',url:'https://smat.io'},
-	{title: 'Bank of Chain',url:'https://https://bankofchain.io'},
-]
+  { title: 'Brochures Focus', url: 'https://https://focusdesarrollos.com.ar' },
+  { title: 'Wedding website Marie & Anthony', url: 'https://smat.io' },
+  { title: 'Bank of Chain', url: 'https://https://bankofchain.io' },
+];
 ---
 
-<Layout
-	title="Portfolio"
-	description="Lorem ipsum dolor sit amet"
->
-<main class="main-container flex flex-col md:flex-row gap-6 p-6">
-	<Particles
-  client:idle
-  className="absolute inset-0 -z-10"
-  quantity={1000}
-  ease={80}
-  color={'#000000'}
-  refresh
-/>
-		<section id="articles" class="flex-1 h-full">
-			<h1 class="border-b-2 border-muted uppercase text-right mb-2">Articles</h1>
-			<div class="flex flex-col gap-4 max-h-[490px] overflow-y-scroll">
-				{mediumData?.items?.map((props)=><MediumCard {...props}/>)}
-			</div>
-		</section>
-		<div class="flex-1 h-full flex flex-col gap-12">
-		<section id="social-media">
-			<h1 class="border-b-2 border-muted uppercase text-left">Social Media</h1>
-			<ul class="h-full flex flex-col justify-evenly">
-				{SOCIAL_MEDIA_LINKS.map(({url,title})=>
-					<li>
-					<a href={url} target="_blank" rel="nofollow noopener">{title}</a>
-					</li>
-			)}
-			
-			</ul>
-		</section>
-		<section id="other-projects">
-			<h1 class="border-b-2 border-muted uppercase text-left">Other Projects</h1>
-			<ul class="h-full flex flex-col justify-evenly">
-
-			{OTHER_PROJECT_LINKS.map(({url,title})=>
-			<li>
-			<a href={url} target="_blank" rel="nofollow noopener">{title}</a>
-			</li>
-	)}
-	</ul>
-		</section>
-	 </div>
-</main>
-<!-- <div class="h-48 w-full"/> -->
-
+<Layout title='Portfolio' description='Lorem ipsum dolor sit amet'>
+  <main class='main-container md:grid md:place-content-center'>
+    <Particles
+      client:idle
+      className='absolute inset-0 -z-10'
+      quantity={1000}
+      ease={80}
+      color={'#000000'}
+      refresh
+    />
+    <div class='flex flex-col-reverse md:flex-row gap-6 p-6'>
+      <section id='articles' class='flex-1 h-full'>
+        <h1 class='border-b-2 border-muted uppercase text-right mb-2'>
+          Articles
+        </h1>
+        <div class='flex flex-col gap-4 overflow-y-scroll'>
+          {mediumData?.items?.map((props) => <MediumCard {...props} />)}
+        </div>
+      </section>
+      <div class='flex-1 h-full flex flex-col gap-12'>
+        <section id='social-media'>
+          <Card className='bg-transparent border-none shadow-none'>
+            <h1 class='border-b-2 border-muted uppercase text-left mb-2'>
+              Social Media
+            </h1>
+            <ul class='h-full flex flex-col justify-evenly gap-6 sm:gap-2 px-4'>
+              {
+                SOCIAL_MEDIA_LINKS.map(({ url, title }) => (
+                  <li class='font-semibold'>
+                    <a href={url} target='_blank' rel='nofollow noopener'>
+                      {title}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </Card>
+        </section>
+        <section id='other-projects'>
+          <Card className='bg-transparent border-none shadow-none'>
+            <h1 class='border-b-2 border-muted uppercase text-left mb-2'>
+              Other Projects
+            </h1>
+            <ul class='h-full flex flex-col justify-evenly gap-6 sm:gap-2 px-4'>
+              {
+                OTHER_PROJECT_LINKS.map(({ url, title }) => (
+                  <li class='font-semibold'>
+                    <a href={url} target='_blank' rel='nofollow noopener'>
+                      {title}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </Card>
+        </section>
+      </div>
+    </div>
+  </main>
+  <!-- <div class="h-48 w-full"/> -->
 </Layout>

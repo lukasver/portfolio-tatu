@@ -1,6 +1,41 @@
 ---
 import { Particles } from '@/components/ui/particles';
 import Layout from '../layouts/Layout.astro';
+import WorkExperienceCard from '@/components/WorkExperienceCard';
+import { Separator } from '@/components/ui/separator';
+
+const WORK_EXPERIENCE = [
+  {
+    title: 'Tempor enim in adipisicing consequat Lorem.',
+    description:
+      'Nostrud laborum id eu nostrud laboris velit. Consectetur adipisicing tempor Lorem do excepteur et est cupidatat minim eiusmod. Duis labore id ad mollit elit enim ex ex enim incididunt. Ea quis ex exercitation proident velit nulla commodo esse ea pariatur incididunt ad. Sunt proident nisi id enim nulla fugiat culpa et. Do exercitation tempor proident aliquip ut proident.',
+  },
+].concat(
+  Array(5).fill({
+    title: 'Tempor enim in adipisicing consequat Lorem.',
+    description:
+      'Nostrud laborum id eu nostrud laboris velit. Consectetur adipisicing tempor Lorem do excepteur et est cupidatat minim eiusmod. Duis labore id ad mollit elit enim ex ex enim incididunt. Ea quis ex exercitation proident velit nulla commodo esse ea pariatur incididunt ad. Sunt proident nisi id enim nulla fugiat culpa et. Do exercitation tempor proident aliquip ut proident.',
+  })
+);
+
+const SKILLS = [
+  'Communication',
+  'Empathy',
+  'Conflict Resolution',
+  'Teamwork',
+  'Problem-Solving',
+  'Adaptability',
+  'Negotiation',
+  'Leadership',
+  'Positive Attitude',
+  'Active Listening',
+];
+
+const ACADEMIC = [
+  "Bachelor's in Computer Science",
+  'High School Diploma',
+  "Master's in Computer Science",
+];
 ---
 
 <Layout title='Resume' description='Lorem ipsum dolor sit amet'>
@@ -13,17 +48,51 @@ import Layout from '../layouts/Layout.astro';
       color={'#000000'}
       refresh
     />
-    <div class='grid grid-cols-1 md:grid-col-3'>
-      <h1 class='invisible'>Resume</h1>
+    <h1 class='invisible'>Resume</h1>
+    <div class='grid grid-cols-1 md:grid-cols-3 p-6 sm:p-0'>
       <!-- Work experience -->
       <div class='flex flex-col gap-2'>
-        <h2 class=''>Work Experience</h2>
+        <h2 class='text-right text-primary font-bold text-xl xl:text-2xl'>
+          Work Experience
+        </h2>
+        {WORK_EXPERIENCE.map((props) => <WorkExperienceCard {...props} />)}
       </div>
 
       <!-- Separator -->
+      <Separator orientation='vertical' className='mx-auto' />
 
       <!-- Academic and more... -->
-      <div></div>
+      <div class='flex flex-col gap-12 justify-start items-start'>
+        <div>
+          <h2 class='text-primary font-bold text-xl xl:text-2xl'>
+            Academic Background
+          </h2>
+          <ul class='list-disc'>
+            {ACADEMIC.map((skill) => <li>{skill}</li>)}
+          </ul>
+        </div>
+
+        <div>
+          <h2 class='text-primary font-bold text-xl xl:text-2xl'>Skills</h2>
+          <ul class='list-disc'>
+            {SKILLS.map((skill) => <li>{skill}</li>)}
+          </ul>
+        </div>
+
+        <div>
+          <h2 class='text-primary font-bold text-xl xl:text-2xl'>
+            Honours & Activities
+          </h2>
+          <p>
+            Tempor occaecat consequat irure do aliqua sit aute eiusmod. Aliqua
+            ad labore occaecat deserunt et adipisicing in. Sunt voluptate
+            laboris ullamco excepteur ullamco magna duis adipisicing. Tempor
+            enim eiusmod culpa proident eiusmod sunt aute ea aliqua eu deserunt
+            in consequat cillum. Dolore do sunt ea voluptate voluptate sunt
+            adipisicing mollit id.
+          </p>
+        </div>
+      </div>
     </div>
   </main>
 </Layout>

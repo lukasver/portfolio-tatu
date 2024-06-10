@@ -10,7 +10,8 @@
       "@/content/*": ["src/content/*"],
       "@/pages/*": ["src/pages/*"],
       "@/styles/*": ["src/styles/*"],
-      "@/lib/*": ["src/lib/*"]
+      "@/lib/*": ["src/lib/*"],
+      "@/config/*": ["src/config/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

@@ -21,6 +21,6 @@ export default defineConfig({
     react(),
   ],
   adapter: vercel({
-    webAnalytics: { enabled: true },
+    webAnalytics: { enabled: import.meta.env.ENV === 'production' },
   }),
 });

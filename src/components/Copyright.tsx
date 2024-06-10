@@ -1,6 +1,5 @@
 import { cn } from '@/lib/utils';
-import React from 'react';
-import { FULL_NAME } from 'src/consts';
+import { FULL_NAME } from '@/config/consts';
 
 function Copyright({ className }: { className?: string }) {
   const today = new Date();
