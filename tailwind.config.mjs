@@ -17,8 +17,8 @@ export default {
       fontFamily: {
         header: ['PT Serif', ...defaultTheme.fontFamily.serif],
         // sans: ['"Noto Sans"', ...defaultTheme.fontFamily.sans],
-        body: ['Josefin Sans Variable', ...defaultTheme.fontFamily.sans],
-        sans: ['Quicksand Variable', ...defaultTheme.fontFamily.sans],
+        body: ['Karla Variable', ...defaultTheme.fontFamily.sans],
+        sans: ['Karla Variable', ...defaultTheme.fontFamily.sans],
         serif: ['Noto Serif', ...defaultTheme.fontFamily.serif],
         mono: ['Noto Sans Mono"', ...defaultTheme.fontFamily.mono],
       },
