@@ -1,13 +1,29 @@
 ---
+import { Particles } from '@/components/ui/particles';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout
-	title="Resume"
-	description="Lorem ipsum dolor sit amet"
->
-<main class="main-container">
-	<h1>hello</h1>
-</main>
+<Layout title='Resume' description='Lorem ipsum dolor sit amet'>
+  <main class='main-container md:grid md:place-content-center'>
+    <Particles
+      client:idle
+      className='absolute inset-0 -z-10'
+      quantity={1000}
+      ease={80}
+      color={'#000000'}
+      refresh
+    />
+    <div class='grid grid-cols-1 md:grid-col-3'>
+      <h1 class='invisible'>Resume</h1>
+      <!-- Work experience -->
+      <div class='flex flex-col gap-2'>
+        <h2 class=''>Work Experience</h2>
+      </div>
 
+      <!-- Separator -->
+
+      <!-- Academic and more... -->
+      <div></div>
+    </div>
+  </main>
 </Layout>
