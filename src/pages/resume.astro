@@ -3,6 +3,7 @@ import { Particles } from '@/components/ui/particles';
 import Layout from '../layouts/Layout.astro';
 import WorkExperienceCard from '@/components/WorkExperienceCard';
 import { Separator } from '@/components/ui/separator';
+import { FULL_NAME } from '@/config/consts';
 
 const WORK_EXPERIENCE = [
   {
@@ -38,7 +39,7 @@ const ACADEMIC = [
 ];
 ---
 
-<Layout title='Resume' description='Lorem ipsum dolor sit amet'>
+<Layout title={`Resume | ${FULL_NAME}`}>
   <main class='main-container 2xl:grid 2xl:place-content-center'>
     <Particles
       client:idle

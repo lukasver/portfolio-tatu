@@ -4,6 +4,7 @@ import { MediumCard } from '@/components/MediumCard';
 import Layout from '../layouts/Layout.astro';
 import { Particles } from '@/components/ui/particles';
 import { Card } from '@/components/ui/card';
+import { FULL_NAME } from '@/config/consts';
 
 const mediumData = await getMediumData();
 
@@ -23,7 +24,7 @@ const OTHER_PROJECT_LINKS = [
 ];
 ---
 
-<Layout title='Portfolio' description='Lorem ipsum dolor sit amet'>
+<Layout title={`Portfolio | ${FULL_NAME}`}>
   <main class='main-container 2xl:grid 2xl:place-content-center'>
     <Particles
       client:idle
@@ -33,11 +34,12 @@ const OTHER_PROJECT_LINKS = [
       color={'#000000'}
       refresh
     />
+    <h1 class='invisible'>Portfolio</h1>
     <div class='flex flex-col-reverse md:flex-row gap-6 p-6'>
       <section id='articles' class='flex-1 h-full'>
-        <h1 class='border-b-2 border-muted uppercase text-right mb-2'>
+        <h2 class='border-b-2 border-muted uppercase text-right mb-2'>
           Articles
-        </h1>
+        </h2>
         <div class='flex flex-col gap-4 overflow-y-scroll'>
           {mediumData?.items?.map((props) => <MediumCard {...props} />)}
         </div>
@@ -45,9 +47,9 @@ const OTHER_PROJECT_LINKS = [
       <div class='flex-1 h-full flex flex-col gap-12'>
         <section id='social-media'>
           <Card className='bg-transparent border-none shadow-none'>
-            <h1 class='border-b-2 border-muted uppercase text-left mb-2'>
+            <h2 class='border-b-2 border-muted uppercase text-left mb-2'>
               Social Media
-            </h1>
+            </h2>
             <ul class='h-full flex flex-col justify-evenly gap-6 sm:gap-2 px-4'>
               {
                 SOCIAL_MEDIA_LINKS.map(({ url, title }) => (
@@ -63,9 +65,9 @@ const OTHER_PROJECT_LINKS = [
         </section>
         <section id='other-projects'>
           <Card className='bg-transparent border-none shadow-none'>
-            <h1 class='border-b-2 border-muted uppercase text-left mb-2'>
+            <h2 class='border-b-2 border-muted uppercase text-left mb-2'>
               Other Projects
-            </h1>
+            </h2>
             <ul class='h-full flex flex-col justify-evenly gap-6 sm:gap-2 px-4'>
               {
                 OTHER_PROJECT_LINKS.map(({ url, title }) => (

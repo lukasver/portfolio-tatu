@@ -4,14 +4,14 @@ import Layout from '../layouts/Layout.astro';
 import { Separator } from '@/components/ui/separator';
 import { ContactForm } from '@/components/ContactForm';
 import { ShineBorder } from '@/components/ui/shine-pulse';
-import { EMAIL } from '@/config/consts';
+import { EMAIL, FULL_NAME } from '@/config/consts';
 import { AnimatedShinyText } from '@/components/ui/shiny-text';
 import { Particles } from '@/components/ui/particles';
 
 const mode = import.meta.env.MODE;
 ---
 
-<Layout title='Contact' description='Lorem ipsum dolor sit amet'>
+<Layout title={`Contact | ${FULL_NAME}`}>
   <main class='main-container 2xl:grid 2xl:place-content-center relative'>
     <Particles
       client:idle
