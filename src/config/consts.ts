@@ -5,12 +5,11 @@ export const SITE_TITLE = 'Tania Geuna | Political Scientist';
 export const NAME = 'Tania';
 export const LASTNAME = 'Geuna';
 export const FULL_NAME = `${NAME} ${LASTNAME}`;
-export const SITE_DESCRIPTION = `Labore tempor quis aute consequat amet enim aute id aliquip fugiat est ullamco ullamco. Labore laborum dolor ut dolor duis sit. Amet dolore culpa velit dolore enim Lorem. Esse veniam eiusmod pariatur ea eiusmod ut Lorem. Adipisicing proident excepteur fugiat excepteur ullamco enim commodo. Incididunt sint ut magna pariatur ea.`;
-export const SITE_SUBTITLE = `Tempor aliqua nulla irure.`;
+export const HERO_DESCRIPTION = `Hi, I’m Tania. With a unique blend of research acumen and creative flair, I relish crafting content and strategies that resonate and inspire. My diverse background, including experiences in the web3, real estate, and sustainability sectors, enables me to bring a holistic approach to every project, ensuring that each initiative is both impactful and meaningful.`;
+export const HERO_SUBTITLE = `Writer. Researcher. Passionate.`;
 export const EMAIL = 'taniamgeuna@gmail.com';
 
-export const HERO_ONELINER =
-  'Incididunt sit officia aliqua fugiat mollit exercitation sit.';
+export const HERO_TITLE = 'Empowering Ideas with Creativity and Purpose';
 
 export const NAVIGATION = [
   {

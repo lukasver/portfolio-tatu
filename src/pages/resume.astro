@@ -39,7 +39,7 @@ const ACADEMIC = [
 ---
 
 <Layout title='Resume' description='Lorem ipsum dolor sit amet'>
-  <main class='main-container md:grid md:place-content-center'>
+  <main class='main-container 2xl:grid 2xl:place-content-center'>
     <Particles
       client:idle
       className='absolute inset-0 -z-10'
@@ -49,9 +49,9 @@ const ACADEMIC = [
       refresh
     />
     <h1 class='invisible'>Resume</h1>
-    <div class='grid grid-cols-1 md:grid-cols-3 p-6 sm:p-0'>
+    <div class='grid grid-cols-1 md:grid-cols-7 p-6 sm:p-0 px-4 md:px-20'>
       <!-- Work experience -->
-      <div class='flex flex-col gap-2'>
+      <div class='flex flex-col gap-2 col-start-1 col-end-4'>
         <h2 class='text-right text-primary font-bold text-xl xl:text-2xl'>
           Work Experience
         </h2>
@@ -59,10 +59,15 @@ const ACADEMIC = [
       </div>
 
       <!-- Separator -->
-      <Separator orientation='vertical' className='mx-auto' />
+      <Separator
+        orientation='vertical'
+        className='mx-auto col-start-4 col-end-4'
+      />
 
       <!-- Academic and more... -->
-      <div class='flex flex-col gap-12 justify-start items-start'>
+      <div
+        class='flex flex-col gap-12 justify-start items-start col-start-5 col-end-8'
+      >
         <div>
           <h2 class='text-primary font-bold text-xl xl:text-2xl'>
             Academic Background
@@ -94,5 +99,6 @@ const ACADEMIC = [
         </div>
       </div>
     </div>
+    <div class='block h-20'></div>
   </main>
 </Layout>

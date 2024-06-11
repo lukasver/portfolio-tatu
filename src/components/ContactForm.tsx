@@ -28,13 +28,32 @@ function ContactForm({ className, mode }: Props) {
   const [timer, setTimer] = useState(0);
   const interval = useRef<NodeJS.Timeout>();
 
-  const onSubmit: SubmitHandler<ContactFormSchema> = (_data) => {
-    setTimer(60);
-    toast.success('Message sent 🎉!', {
-      description: 'Thank you, I will get back to you asap!',
-      duration: 15_000,
-    });
-    interval.current = setInterval(() => setTimer((pv) => pv - 1), 1000);
+  const onSubmit: SubmitHandler<ContactFormSchema> = async (data) => {
+    toast.loading('Sending ');
+    try {
+      const resp = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      console.debug('🚀 ~ resp:', resp);
+
+      if (resp.status === 200) {
+        setTimer(60);
+        interval.current = setInterval(() => setTimer((pv) => pv - 1), 1000);
+        toast.success('Message sent 🎉!', {
+          description: 'Thank you, I will get back to you asap!',
+          duration: 15_000,
+        });
+        return;
+      }
+      throw new Error('Failed to send message');
+    } catch (e) {
+      toast.error('Failed to send message');
+    }
   };
 
   const onInvalid: SubmitErrorHandler<ContactFormSchema> = (_errors) => {
@@ -54,7 +73,12 @@ function ContactForm({ className, mode }: Props) {
   }, [interval.current, timer]);
 
   return (
-    <Card className={cn(className, 'relative p-8 border-none shadow-none')}>
+    <Card
+      className={cn(
+        className,
+        'relative pt-8 px-8 pb-2 border-none shadow-none'
+      )}
+    >
       <Toaster position='top-right' toastOptions={{ closeButton: true }} />
       <Form {...form}>
         <form
@@ -92,7 +116,7 @@ function ContactForm({ className, mode }: Props) {
             <FormTextArea
               name='message'
               placeholder='Tell me what are you thinking about...'
-              className='min-h-40'
+              className='min-h-20'
               control={form.control}
             />
           </div>

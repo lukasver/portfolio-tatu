@@ -1,5 +1,4 @@
 ---
-import { AnimatedShinyText } from '@/components/ui/shiny-text';
 import { getMediumData } from '@/lib/functions';
 import { MediumCard } from '@/components/MediumCard';
 import Layout from '../layouts/Layout.astro';
@@ -25,7 +24,7 @@ const OTHER_PROJECT_LINKS = [
 ---
 
 <Layout title='Portfolio' description='Lorem ipsum dolor sit amet'>
-  <main class='main-container md:grid md:place-content-center'>
+  <main class='main-container 2xl:grid 2xl:place-content-center'>
     <Particles
       client:idle
       className='absolute inset-0 -z-10'
@@ -82,6 +81,7 @@ const OTHER_PROJECT_LINKS = [
         </section>
       </div>
     </div>
+    <div class='block h-20'></div>
   </main>
   <!-- <div class="h-48 w-full"/> -->
 </Layout>

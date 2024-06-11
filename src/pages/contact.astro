@@ -12,7 +12,7 @@ const mode = import.meta.env.MODE;
 ---
 
 <Layout title='Contact' description='Lorem ipsum dolor sit amet'>
-  <main class='main-container sm:grid sm:place-content-center relative'>
+  <main class='main-container 2xl:grid 2xl:place-content-center relative'>
     <Particles
       client:idle
       className='absolute inset-0 -z-10'
@@ -21,29 +21,46 @@ const mode = import.meta.env.MODE;
       color={'#000000'}
       refresh
     />
-    <div class='grid grid-cols-1 m-4 sm:0'>
+    <div
+      class='flex md:justify-start lg:justify-center items-center lg:items-center flex-col m-4 sm:0 h-full md:h-min lg:h-full overflow-y-scroll'
+    >
       <ShineBorder color={['#dc2626', '#D2B48C', '#FFBE7B', '#fff6f4']}>
-        <section>
-          <h1 class='uppercase'>Contact Me</h1>
-          <Separator orientation='horizontal' />
-          <div class='flex justify-center items-center mt-4'>
-            <a href={`mailto:${EMAIL}`}>
+        <div>
+          <div class='px-8 pt-6'>
+            <h1 class='text-2xl'>Contact me</h1>
+            <p class='text-center'>
               <AnimatedShinyText>
-                {EMAIL}
+                I'm always happy to help you with your project
               </AnimatedShinyText>
-            </a>
+            </p>
           </div>
-          <div class='my-4 flex flex-row gap-2 items-center justify-center'>
-            <a href='https://api.whatsapp.com/send?phone=351968855958'
-              ><Icons.Whatsapp /></a
+          <ContactForm client:load mode={mode} />
+          <div class='flex flex-row gap-2 items-center relative'>
+            <div class='flex-1'>
+              <Separator orientation='horizontal' />
+            </div>
+            <p class='text-center'>
+              <span class='text-sm'>or</span>
+            </p>
+            <div class='flex-1'>
+              <Separator orientation='horizontal' />
+            </div>
+          </div>
+          <div class='flex flex-row justify-center gap-2'>
+            <a
+              href={`mailto:${EMAIL}`}
+              class='size-[30px] flex justify-center items-center p-[1px]'
             >
-            <a href='https://t.me/tatumelg'><Icons.Telegram /></a>
+              <Icons.Mail height='90%' width='90%' /></a
+            >
+            <a href='https://api.whatsapp.com/send?phone=351968855958'>
+              <Icons.Whatsapp /></a
+            >
+            <a href='https://t.me/tatumelg'> <Icons.Telegram /></a>
           </div>
-          <Separator orientation='horizontal' />
-        </section>
-
-        <ContactForm client:load mode={mode} />
+        </div>
       </ShineBorder>
+      <div class='block sm:h-20 lg:hidden'></div>
     </div>
   </main>
 </Layout>
