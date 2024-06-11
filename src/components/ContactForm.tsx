@@ -29,7 +29,7 @@ function ContactForm({ className, mode }: Props) {
   const interval = useRef<NodeJS.Timeout>();
 
   const onSubmit: SubmitHandler<ContactFormSchema> = async (data) => {
-    toast.loading('Sending ');
+    const loading = toast.loading('Sending...');
     try {
       const resp = await fetch('/api/contact', {
         method: 'POST',
@@ -39,7 +39,6 @@ function ContactForm({ className, mode }: Props) {
         },
         body: JSON.stringify(data),
       });
-      console.debug('🚀 ~ resp:', resp);
 
       if (resp.status === 200) {
         setTimer(60);
@@ -53,6 +52,8 @@ function ContactForm({ className, mode }: Props) {
       throw new Error('Failed to send message');
     } catch (e) {
       toast.error('Failed to send message');
+    } finally {
+      toast.dismiss(loading);
     }
   };
 
