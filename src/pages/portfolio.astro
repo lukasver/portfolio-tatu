@@ -6,28 +6,73 @@ import ThreeColsLayout from '@/layouts/ThreeColsLayout.astro';
 
 import { Card } from '@/components/ui/card';
 import { FULL_NAME } from '@/config/consts';
+import { Separator } from '@/components/ui/separator';
 
 const mediumData = await getMediumData();
 
 const SOCIAL_MEDIA_LINKS = [
   {
-    title: 'Focus desarrollos',
-    url: 'https://https://focusdesarrollos.com.ar',
+    title: 'Copywriting in Focus Desarrollos (2022-2024)',
+    links: [
+      {
+        title: 'Linkedin',
+        url: 'https://www.linkedin.com/company/focusdesarrollos-fd/posts/?feedView=all',
+      },
+      {
+        title: 'Instagram',
+        url: 'https://www.instagram.com/focus.desarrollos/',
+      },
+      { title: 'Website', url: 'https://focusdesarrollos.com.ar/' },
+    ],
   },
-  { title: 'Smat', url: 'https://smat.io' },
-  { title: 'Bank of Chain', url: 'https://https://bankofchain.io' },
+  {
+    title: 'Community Management in Smat (2022)',
+    links: [
+      {
+        title: 'Linkedin',
+        url: 'https://www.linkedin.com/company/70448636/feed/posts/',
+      },
+      { title: 'Twitter', url: 'https://x.com/smat_io' },
+    ],
+  },
+  {
+    title:
+      'Community Management and Public Relations in Bank of Chain (2022-2023):',
+    links: [
+      {
+        title: 'Linkedin',
+        url: 'https://www.linkedin.com/company/bank-of-chain/about/',
+      },
+      { title: 'Twitter', url: 'https://x.com/bankofchain_dao' },
+      { title: 'Medium', url: 'https://medium.com/bankofchain' },
+      { title: 'Discord', url: 'https://discord.com/invite/y9RZVaGFEf' },
+    ],
+  },
 ];
 
 const OTHER_PROJECT_LINKS = [
-  { title: 'Brochures Focus', url: 'https://https://focusdesarrollos.com.ar' },
-  { title: 'Wedding website Marie & Anthony', url: 'https://smat.io' },
-  { title: 'Bank of Chain', url: 'https://https://bankofchain.io' },
+  {
+    title:
+      'Brochures for Focus Desarrollos: Giardino Proyect | Symmetry Proyect',
+    url: 'https://focusdesarrollos.com.ar/wp-content/uploads/2023/10/focus_giardino_brochure_oct23_web.pdf',
+  },
+  {
+    title: 'Website Design',
+    url: 'https://taniamgeuna.wixsite.com/marieaetanthony',
+  },
+  {
+    title: 'Bank of Chain’s Whitepaper Edition and Translation',
+    url: 'https://focusdesarrollos.com.ar/wp-content/uploads/2023/10/focus_giardino_brochure_oct23_web.pdf',
+  },
 ];
 ---
 
 <Layout title={`Portfolio | ${FULL_NAME}`}>
   <h1 class='invisible'>Portfolio</h1>
-  <ThreeColsLayout>
+  <ThreeColsLayout
+ 
+  
+  >
     <section
       slot='first-column'
       id='articles'
@@ -42,7 +87,7 @@ const OTHER_PROJECT_LINKS = [
     </section>
     <div
       slot='second-column'
-      class='flex-1 h-full justify-start items-start col-start-5 col-end-8'
+      class='flex flex-col gap-6 flex-1 h-full justify-start items-start col-start-5 col-end-8'
     >
       <section id='social-media'>
         <Card className='bg-transparent border-none shadow-none'>
@@ -51,11 +96,24 @@ const OTHER_PROJECT_LINKS = [
           </h2>
           <ul class='h-full flex flex-col justify-evenly gap-6 sm:gap-2 px-4'>
             {
-              SOCIAL_MEDIA_LINKS.map(({ url, title }) => (
-                <li class='font-semibold'>
-                  <a href={url} target='_blank' rel='nofollow noopener'>
-                    {title}
-                  </a>
+              SOCIAL_MEDIA_LINKS.map(({ links, title }) => (
+                <li class='flex flex-col gap-1'>
+                  <p class='font-semibold'>{title}</p>
+                  <div class='flex flex-row gap-2'>
+                    {links.map(({ url, title }) => (
+                      <a
+                        class='text-sm font-semibold text-secondary'
+                        href={url}
+                        target='_blank'
+                        rel='nofollow noopener'
+                      >
+                        {title}
+                      </a>
+                      <div>
+                      <Separator orientation='vertical' />
+                    </div>
+                    ))}
+                  </div>
                 </li>
               ))
             }
@@ -82,4 +140,5 @@ const OTHER_PROJECT_LINKS = [
       </section>
     </div>
   </ThreeColsLayout>
+  <div class="h-20"/>
 </Layout>

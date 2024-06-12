@@ -9,15 +9,17 @@ export interface MediumFeed {
     image: string;
   };
   items: Array<{
+    id: string;
     title: string;
-    pubDate: string;
+    published: string;
     link: string;
-    guid: string;
+    created: string;
     author: string;
     thumbnail: string;
-    description: string;
+    content_encoded: string;
     content: string;
-    enclosure: {};
-    categories: string[];
+    enclosures: [];
+    category: string[];
+    media: {};
   }>;
 }

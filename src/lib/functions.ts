@@ -13,7 +13,7 @@ export const getMediumData = async (): Promise<MediumFeed | null> => {
 
   if (response) {
     const cleanedItems = response.items.map(
-      ({ description, content, thumbnail, ...rest }) => {
+      ({ content_encoded, content, thumbnail, ...rest }) => {
         let image = thumbnail;
         if (!image) {
           const regex = /<img[^>]*src="([^"]*)"/;
@@ -26,23 +26,17 @@ export const getMediumData = async (): Promise<MediumFeed | null> => {
         return {
           ...rest,
           thumbnail: image,
-          description: he.decode(
-            sanitizeHtml(content, {
+          content_encoded: he.decode(
+            sanitizeHtml(content_encoded, {
               allowedTags: [],
               allowedAttributes: {},
-            })
-              .split('\n')
-              .slice(0, 5)
-              .join('\n')
+            }).substring(0, 300)
           ),
           content: he.decode(
             sanitizeHtml(content, {
               allowedTags: [],
               allowedAttributes: {},
-            })
-              .split('\n')
-              .slice(0, 5)
-              .join('\n')
+            }).substring(0, 300)
           ),
         };
       }

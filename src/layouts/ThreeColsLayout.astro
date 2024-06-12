@@ -1,18 +1,26 @@
 ---
 import { Particles } from '@/components/ui/particles';
 import { Separator } from '@/components/ui/separator';
+import { cn } from '@/lib/utils';
+
+const { classes = {} } = Astro.props;
 ---
 
 <main class='main-container 2xl:grid 2xl:place-content-center'>
   <Particles
     client:idle
-    className='absolute inset-0 -z-10'
+    className='hidden sm:block absolute inset-0 -z-10'
     quantity={1000}
     ease={80}
     color={'#000000'}
     refresh
   />
-  <div class='grid grid-cols-1 md:grid-cols-7 px-4 sm:px-6 lg:px-12 py-2'>
+  <div
+    class={cn(
+      classes.firstColContainer,
+      'grid gap-6 sm:gap-0 grid-cols-1 md:grid-cols-7 px-4 sm:px-6 lg:px-12 py-2'
+    )}
+  >
     <slot name='first-column' />
     <!-- Separator -->
     <Separator
@@ -22,7 +30,10 @@ import { Separator } from '@/components/ui/separator';
 
     <!-- Academic and more... -->
     <div
-      class='flex flex-col gap-12 justify-start items-start md:col-start-5 md:col-end-8'
+      class={cn(
+        classes.secondColContainer,
+        'flex flex-col gap-12 justify-start items-start col-start-1 md:col-start-5 md:col-end-8'
+      )}
     >
       <slot name='second-column' />
     </div>

@@ -124,7 +124,6 @@ function ContactForm({ className, mode }: Props) {
           <Button
             className='w-full mt-2'
             type='submit'
-            onClick={() => console.log('clicked')}
             disabled={!!timer || form.formState.isSubmitting}
           >
             Submit

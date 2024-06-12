@@ -1,5 +1,4 @@
 ---
-import { Particles } from '@/components/ui/particles';
 import Layout from '../layouts/Layout.astro';
 import WorkExperienceCard from '@/components/WorkExperienceCard';
 import { Separator } from '@/components/ui/separator';
@@ -93,43 +92,51 @@ const ACADEMIC = [
 
 <Layout title={`Resume | ${FULL_NAME}`} footer={false}>
   <h1 class='invisible'>Resume</h1>
-  <ThreeColsLayout>
-    <div slot='first-column' class='flex flex-col gap-2 col-start-1 col-end-4'>
-      <h2 class='md:text-right text-primary font-bold text-xl xl:text-2xl'>
-        Work Experience
-      </h2>
-      {WORK_EXPERIENCE.map((props) => <WorkExperienceCard {...props} />)}
-    </div>
+  <ThreeColsLayout classes={{ secondColContainer: 'row-start-1' }}>
     <div
-      slot='second-column'
-      class='flex flex-col gap-12 justify-start items-start col-start-5 col-end-8'
+      slot='first-column'
+      class='flex flex-col gap-12 justify-start items-end md:col-start-1 md:col-end-4'
     >
       <div class='flex flex-col gap-4'>
-        <h2 class='text-primary font-bold text-xl xl:text-2xl'>
+        <h2 class='md:text-right text-primary font-bold text-xl xl:text-2xl'>
           Academic Background
         </h2>
         <ul class='flex flex-col gap-6'>
           {
             ACADEMIC.map(({ degree, uni, date }) => (
               <li class='flex flex-col gap-1'>
-                <div class='flex flex-row gap-2'>
-                  <i class='text-muted-foreground text-sm'>{date}</i>
-                  <b>{degree}</b>
+                <div class='flex flex-row gap-2 items-center md:justify-end'>
+                  <i class='text-muted-foreground text-sm md:text-right'>
+                    {date}
+                  </i>
+                  <b class='md:text-right'>{degree}</b>
                 </div>
-                <p class='text-sm'>{uni}</p>
+                <p class='text-sm md:text-right'>{uni}</p>
               </li>
             ))
           }
         </ul>
       </div>
 
-      <div class='flex flex-col gap-4'>
-        <h2 class='text-primary font-bold text-xl xl:text-2xl'>Skills</h2>
-        <ul class='grid grid-cols-2 gap-y-1 gap-x-20'>
-          {SKILLS.map((skill) => <li>{skill}</li>)}
+      <div class='flex flex-col gap-4 md:items-end'>
+        <h2 class='md:text-right text-primary font-bold text-xl xl:text-2xl'>
+          Skills
+        </h2>
+        <ul class='grid grid-cols-2 gap-y-1 lg:gap-x-20'>
+          {SKILLS.map((skill) => <li class='md:text-right'>{skill}</li>)}
         </ul>
       </div>
     </div>
+    <div
+      slot='second-column'
+      class='flex flex-col gap-2 md:col-start-5 md:col-end-8'
+    >
+      <h2 class='text-primary font-bold text-xl xl:text-2xl'>
+        Work Experience
+      </h2>
+      {WORK_EXPERIENCE.map((props) => <WorkExperienceCard {...props} />)}
+    </div>
   </ThreeColsLayout>
   <Footer class={'relative sm:relative'} />
+  <div class='h-20'></div>
 </Layout>
