@@ -4,102 +4,132 @@ import Layout from '../layouts/Layout.astro';
 import WorkExperienceCard from '@/components/WorkExperienceCard';
 import { Separator } from '@/components/ui/separator';
 import { FULL_NAME } from '@/config/consts';
+import Footer from '@/components/Footer.astro';
+import ThreeColsLayout from '@/layouts/ThreeColsLayout.astro';
 
 const WORK_EXPERIENCE = [
   {
-    title: 'Tempor enim in adipisicing consequat Lorem.',
+    title: 'Research Assistant, Development International e.V.',
     description:
-      'Nostrud laborum id eu nostrud laboris velit. Consectetur adipisicing tempor Lorem do excepteur et est cupidatat minim eiusmod. Duis labore id ad mollit elit enim ex ex enim incididunt. Ea quis ex exercitation proident velit nulla commodo esse ea pariatur incididunt ad. Sunt proident nisi id enim nulla fugiat culpa et. Do exercitation tempor proident aliquip ut proident.',
+      'Contributed to a research project by collecting data, conducting research, and performing literature reviews. Analysed data to identify trends, wrote preliminary reports, and collaborated on various tasks to meet project deliverables.',
+    date: '2023-present',
   },
-].concat(
-  Array(5).fill({
-    title: 'Tempor enim in adipisicing consequat Lorem.',
+  {
+    title: 'Copywriter, Focus Desarrollos',
     description:
-      'Nostrud laborum id eu nostrud laboris velit. Consectetur adipisicing tempor Lorem do excepteur et est cupidatat minim eiusmod. Duis labore id ad mollit elit enim ex ex enim incididunt. Ea quis ex exercitation proident velit nulla commodo esse ea pariatur incididunt ad. Sunt proident nisi id enim nulla fugiat culpa et. Do exercitation tempor proident aliquip ut proident.',
-  })
-);
+      'Researched and integrated current industry trends to create content that supports the company’s marketing objectives. Crafted compelling and targeted content for its audience, significantly enhancing brand visibility and engagement.',
+    date: '2022-2024',
+  },
+  {
+    title: 'General Assistant & Community Manager, Smat',
+    description:
+      'Managed and executed social media strategies, crafting compelling content and increasing online presence. Oversaw community engagement, providing customer support. Assisted with graphic design and recruiting tasks.',
+    date: '2022-2023',
+  },
+  {
+    title: 'Public Relations Manager, Bank of Chain',
+    description:
+      'Developed and implemented marketing strategies to boost company visibility in the web3 sector. Managed social media platforms and created engaging content resulting in an increasing audience from zero. Conducted market research and analysed trends to improve strategic planning. Handled contacts with potential partnerships and financial supporters.',
+    date: '2022-2023',
+  },
+  {
+    title: 'Legislative Consultant, Freelance',
+    description:
+      'Advised and assisted on legislative projects with a focus on sustainable development and innovation. Drafted proposals and researched regulatory frameworks, supporting comprehensive policy development.',
+    date: '2021-2022',
+  },
+  {
+    title: 'Passenger Service Agent, Aerolineas Argentinas',
+    description:
+      'Managed passenger services, including check-in, boarding, and customer service, ensuring a seamless travel experience. Handled complex customer service and operational scenarios and resolved issues related to travel documentation and baggage claims.',
+    date: '2016-2020',
+  },
+  {
+    title: 'Airport Service Agent & Team Coordinator, Swissport',
+    description:
+      'Managed passenger services for Latam Airlines. Coordinated team operations for Travelrock charters, private charters, and Swissport operations at Rosario’s airport. Conducted performance and flight operations reporting.',
+    date: '2013-2016',
+  },
+];
 
 const SKILLS = [
-  'Communication',
-  'Empathy',
-  'Conflict Resolution',
-  'Teamwork',
+  'Team Leadership',
   'Problem-Solving',
+  'Effective Communication',
   'Adaptability',
-  'Negotiation',
-  'Leadership',
-  'Positive Attitude',
-  'Active Listening',
+  'Attention to Detail',
+  'Time Management',
+  'Writing and Research',
+  'Content Creation',
+  'Social Media Management',
+  'Copywriting',
+  'Community Engagement',
+  'Digital Marketing',
+  'Data Analysis',
+  'Project Management',
+  'Blockchain Technology',
+  'Cryptocurrencies',
+  'Microsoft Office',
+  'Pivot Tables',
+  'Figma',
+  'Notion',
+  'Canva',
+  'Trello',
 ];
 
 const ACADEMIC = [
-  "Bachelor's in Computer Science",
-  'High School Diploma',
-  "Master's in Computer Science",
+  {
+    degree: 'University Degree in Political Sciencies',
+    uni: 'Universidad Abierta Interamericana',
+    date: '2013-2020',
+  },
+  {
+    degree: 'Environmental and Political Challenges for a Sustainable Future',
+    uni: 'ADELA - Flacso',
+    date: '2020',
+  },
 ];
 ---
 
-<Layout title={`Resume | ${FULL_NAME}`}>
-  <main class='main-container 2xl:grid 2xl:place-content-center'>
-    <Particles
-      client:idle
-      className='absolute inset-0 -z-10'
-      quantity={1000}
-      ease={80}
-      color={'#000000'}
-      refresh
-    />
-    <h1 class='invisible'>Resume</h1>
-    <div class='grid grid-cols-1 md:grid-cols-7 p-6 sm:p-0 px-4 md:px-20'>
-      <!-- Work experience -->
-      <div class='flex flex-col gap-2 col-start-1 col-end-4'>
-        <h2 class='text-right text-primary font-bold text-xl xl:text-2xl'>
-          Work Experience
+<Layout title={`Resume | ${FULL_NAME}`} footer={false}>
+  <h1 class='invisible'>Resume</h1>
+  <ThreeColsLayout>
+    <div slot='first-column' class='flex flex-col gap-2 col-start-1 col-end-4'>
+      <h2 class='md:text-right text-primary font-bold text-xl xl:text-2xl'>
+        Work Experience
+      </h2>
+      {WORK_EXPERIENCE.map((props) => <WorkExperienceCard {...props} />)}
+    </div>
+    <div
+      slot='second-column'
+      class='flex flex-col gap-12 justify-start items-start col-start-5 col-end-8'
+    >
+      <div class='flex flex-col gap-4'>
+        <h2 class='text-primary font-bold text-xl xl:text-2xl'>
+          Academic Background
         </h2>
-        {WORK_EXPERIENCE.map((props) => <WorkExperienceCard {...props} />)}
+        <ul class='flex flex-col gap-6'>
+          {
+            ACADEMIC.map(({ degree, uni, date }) => (
+              <li class='flex flex-col gap-1'>
+                <div class='flex flex-row gap-2'>
+                  <i class='text-muted-foreground text-sm'>{date}</i>
+                  <b>{degree}</b>
+                </div>
+                <p class='text-sm'>{uni}</p>
+              </li>
+            ))
+          }
+        </ul>
       </div>
 
-      <!-- Separator -->
-      <Separator
-        orientation='vertical'
-        className='mx-auto col-start-4 col-end-4'
-      />
-
-      <!-- Academic and more... -->
-      <div
-        class='flex flex-col gap-12 justify-start items-start col-start-5 col-end-8'
-      >
-        <div>
-          <h2 class='text-primary font-bold text-xl xl:text-2xl'>
-            Academic Background
-          </h2>
-          <ul class='list-disc'>
-            {ACADEMIC.map((skill) => <li>{skill}</li>)}
-          </ul>
-        </div>
-
-        <div>
-          <h2 class='text-primary font-bold text-xl xl:text-2xl'>Skills</h2>
-          <ul class='list-disc'>
-            {SKILLS.map((skill) => <li>{skill}</li>)}
-          </ul>
-        </div>
-
-        <div>
-          <h2 class='text-primary font-bold text-xl xl:text-2xl'>
-            Honours & Activities
-          </h2>
-          <p>
-            Tempor occaecat consequat irure do aliqua sit aute eiusmod. Aliqua
-            ad labore occaecat deserunt et adipisicing in. Sunt voluptate
-            laboris ullamco excepteur ullamco magna duis adipisicing. Tempor
-            enim eiusmod culpa proident eiusmod sunt aute ea aliqua eu deserunt
-            in consequat cillum. Dolore do sunt ea voluptate voluptate sunt
-            adipisicing mollit id.
-          </p>
-        </div>
+      <div class='flex flex-col gap-4'>
+        <h2 class='text-primary font-bold text-xl xl:text-2xl'>Skills</h2>
+        <ul class='grid grid-cols-2 gap-y-1 gap-x-20'>
+          {SKILLS.map((skill) => <li>{skill}</li>)}
+        </ul>
       </div>
     </div>
-    <div class='block h-20'></div>
-  </main>
+  </ThreeColsLayout>
+  <Footer class={'relative sm:relative'} />
 </Layout>

@@ -1,7 +1,12 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import { HERO_DESCRIPTION, HERO_SUBTITLE } from '@/config/consts';
+import {
+  HERO_DESCRIPTION,
+  HERO_SUBTITLE,
+  LASTNAME,
+  NAME,
+} from '@/config/consts';
 import '@/styles/global.css';
 import { ViewTransitions } from 'astro:transitions';
 
@@ -23,8 +28,11 @@ const {
 <!-- Global Metadata -->
 <meta charset='utf-8' />
 <meta name='viewport' content='width=device-width,initial-scale=1' />
-<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 <meta name='generator' content={Astro.generator} />
+<link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
+<link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
+<link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
+<link rel='manifest' href='/site.webmanifest' />
 
 <!-- Canonical URL -->
 <link rel='canonical' href={canonicalURL} />
@@ -40,6 +48,8 @@ const {
 <meta property='og:title' content={title} />
 <meta property='og:description' content={description} />
 <meta property='og:image' content={new URL(image, Astro.url)} />
+<meta property='profile:first_name' content={NAME} />
+<meta property='profile:last_name' content={LASTNAME} />
 
 <!-- Twitter -->
 <meta property='twitter:card' content='summary_large_image' />

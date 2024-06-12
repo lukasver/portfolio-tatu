@@ -15,12 +15,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        header: ['PT Sans', ...defaultTheme.fontFamily.serif],
-        // sans: ['"Noto Sans"', ...defaultTheme.fontFamily.sans],
-        body: ['Karla Variable', ...defaultTheme.fontFamily.sans],
-        sans: ['Karla Variable', ...defaultTheme.fontFamily.sans],
-        serif: ['Noto Serif', ...defaultTheme.fontFamily.serif],
-        mono: ['Noto Sans Mono"', ...defaultTheme.fontFamily.mono],
+        header: ['Nanum Gothic', ...defaultTheme.fontFamily.serif],
+        body: ['Quicksand Variable', ...defaultTheme.fontFamily.sans],
+        sans: ['Quicksand Variable', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         border: 'hsl(var(--border))',

@@ -7,7 +7,7 @@ function Copyright({ className }: { className?: string }) {
     <div
       className={cn(
         className,
-        'pt-2 px-4 md:px-16 mx-auto max-w-screen-2xl flex flex-row justify-between items-center gap-2 text-xs'
+        'pt-2 md:px-2 lg:px-16 mx-auto max-w-screen-2xl flex flex-row justify-between items-center gap-2 text-xs'
       )}
     >
       <p className='text-muted-foreground'>

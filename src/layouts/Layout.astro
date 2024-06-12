@@ -5,8 +5,14 @@ import Footer from '@/components/Footer.astro';
 
 import { Container } from '@/components/ui/container';
 import { SITE_TITLE, HERO_DESCRIPTION } from '@/config/consts';
+import '@fontsource/nanum-gothic';
+import '@fontsource-variable/quicksand';
 
-const { title = SITE_TITLE, description = HERO_DESCRIPTION } = Astro.props;
+const {
+  title = SITE_TITLE,
+  description = HERO_DESCRIPTION,
+  footer = true,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -19,6 +25,6 @@ const { title = SITE_TITLE, description = HERO_DESCRIPTION } = Astro.props;
     <Container>
       <slot />
     </Container>
-    <Footer />
+    {footer && <Footer />}
   </body>
 </html>

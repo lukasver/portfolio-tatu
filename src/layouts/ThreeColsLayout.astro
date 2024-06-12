@@ -1,0 +1,30 @@
+---
+import { Particles } from '@/components/ui/particles';
+import { Separator } from '@/components/ui/separator';
+---
+
+<main class='main-container 2xl:grid 2xl:place-content-center'>
+  <Particles
+    client:idle
+    className='absolute inset-0 -z-10'
+    quantity={1000}
+    ease={80}
+    color={'#000000'}
+    refresh
+  />
+  <div class='grid grid-cols-1 md:grid-cols-7 px-4 sm:px-6 lg:px-12 py-2'>
+    <slot name='first-column' />
+    <!-- Separator -->
+    <Separator
+      orientation='vertical'
+      className='mx-auto md:col-start-4 md:col-end-4 hidden md:block'
+    />
+
+    <!-- Academic and more... -->
+    <div
+      class='flex flex-col gap-12 justify-start items-start md:col-start-5 md:col-end-8'
+    >
+      <slot name='second-column' />
+    </div>
+  </div>
+</main>

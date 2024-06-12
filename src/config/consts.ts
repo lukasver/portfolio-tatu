@@ -24,10 +24,10 @@ export const NAVIGATION = [
     title: 'Portfolio',
     url: '/portfolio',
   },
-  {
-    title: 'My thoughts',
-    url: '/blog',
-  },
+  // {
+  //   title: 'My thoughts',
+  //   url: '/blog',
+  // },
   {
     title: 'Contact',
     url: '/contact',

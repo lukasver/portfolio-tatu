@@ -2,10 +2,16 @@
 import { SocialLinks } from './SocialLinks';
 import { Separator } from './ui/separator';
 import Copyright from './Copyright';
+import { cn } from '@/lib/utils';
+
+const { class: className } = Astro.props;
 ---
 
 <footer
-  class='mt-2 bg-background-pastel/70 block sm:fixed bottom-0 left-0 right-0 z-10'
+  class={cn(
+    className,
+    'mt-2 bg-background-pastel/70 block sm:fixed bottom-0 left-0 right-0 z-10'
+  )}
 >
   <Separator />
   <div class='hidden sm:block'>
