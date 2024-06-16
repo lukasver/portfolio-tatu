@@ -53,16 +53,28 @@ const SOCIAL_MEDIA_LINKS = [
 const OTHER_PROJECT_LINKS = [
   {
     title:
-      'Brochures for Focus Desarrollos: Giardino Proyect | Symmetry Proyect',
-    url: 'https://focusdesarrollos.com.ar/wp-content/uploads/2023/10/focus_giardino_brochure_oct23_web.pdf',
+      'Brochures for Focus Desarrollos',
+    links: [
+      {title: 'Giardino Project',
+      url: 'https://focusdesarrollos.com.ar/wp-content/uploads/2023/10/focus_giardino_brochure_oct23_web.pdf'},
+      {title: 'Symmetry Project',
+      url: 'https://focusdesarrollos.com.ar/wp-content/uploads/2022/06/focus_symmetry_brochure.pdf'},
+    ]
   },
   {
     title: 'Website Design',
-    url: 'https://taniamgeuna.wixsite.com/marieaetanthony',
+    links: [
+      {title: 'Marie & Anthony',
+      url: 'https://taniamgeuna.wixsite.com/marieaetanthony', 
+  }
+    ],
   },
   {
     title: 'Bank of Chain’s Whitepaper Edition and Translation',
-    url: 'https://focusdesarrollos.com.ar/wp-content/uploads/2023/10/focus_giardino_brochure_oct23_web.pdf',
+    links: [{
+      title: 'Whitepaper',
+      url: 'https://docs.bankofchain.io/docs',
+    }]
   },
 ];
 ---
@@ -100,7 +112,7 @@ const OTHER_PROJECT_LINKS = [
                 <li class='flex flex-col gap-1'>
                   <p class='font-semibold'>{title}</p>
                   <div class='flex flex-row gap-2'>
-                    {links.map(({ url, title }) => (
+                    {links.map(({ url, title },index) => (
                       <a
                         class='text-sm font-semibold text-secondary'
                         href={url}
@@ -110,7 +122,7 @@ const OTHER_PROJECT_LINKS = [
                         {title}
                       </a>
                       <div>
-                      <Separator orientation='vertical' />
+                      {index !== links.length -1 && <Separator orientation='vertical' />}
                     </div>
                     ))}
                   </div>
@@ -127,11 +139,26 @@ const OTHER_PROJECT_LINKS = [
           </h2>
           <ul class='h-full flex flex-col justify-evenly gap-6 sm:gap-2 px-4'>
             {
-              OTHER_PROJECT_LINKS.map(({ url, title }) => (
+              OTHER_PROJECT_LINKS.map(({ links, title }) => (
                 <li class='font-semibold'>
-                  <a href={url} target='_blank' rel='nofollow noopener'>
+                  <p>
                     {title}
-                  </a>
+                  </p>
+                  <div class='flex flex-row gap-2'>
+                    {links.map(({ url, title },index) => (
+                      <a
+                        class='text-sm font-semibold text-secondary'
+                        href={url}
+                        target='_blank'
+                        rel='nofollow noopener'
+                      >
+                        {title}
+                      </a>
+                      <div>
+                      {index !== links.length -1 && <Separator orientation='vertical' />}
+                    </div>
+                    ))}
+                  </div>
                 </li>
               ))
             }
