@@ -14,7 +14,7 @@ function WorkExperienceCard({ title, description, date }: Props) {
           <p className='text font-bold'>{title}</p>
           <i className='text-muted-foreground text-sm'>{date}</i>
         </div>
-        <p className='text-sm line-clamp-4'>{description}</p>
+        <p className='text-sm line-clamp-4 text-justify'>{description}</p>
       </div>
     </Card>
   );
