@@ -95,7 +95,7 @@ const OTHER_PROJECT_LINKS = [
       <h2 class='border-b-2 border-muted uppercase text-right mb-2'>
         Articles
       </h2>
-      <div class='flex flex-col gap-4 overflow-y-scroll'>
+      <div class='flex flex-col gap-4 overflow-y-scroll no-scrollbar'>
         {mediumData?.items?.map((props) => <MediumCard {...props} />)}
         {customArticles?.items?.map((props) => <MediumCard {...props} />)}
       </div>
