@@ -116,7 +116,7 @@ function ContactForm({ className, mode }: Props) {
           <div>
             <FormTextArea
               name='message'
-              placeholder='Tell me what are you thinking about...'
+              placeholder="What's on your mind?..."
               className='min-h-20'
               control={form.control}
             />
