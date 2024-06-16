@@ -1,5 +1,5 @@
 ---
-import { getMediumData } from '@/lib/functions';
+import { getMediumData,getCustomArticles } from '@/lib/functions';
 import { MediumCard } from '@/components/MediumCard';
 import Layout from '@/layouts/Layout.astro';
 import ThreeColsLayout from '@/layouts/ThreeColsLayout.astro';
@@ -9,6 +9,8 @@ import { FULL_NAME } from '@/config/consts';
 import { Separator } from '@/components/ui/separator';
 
 const mediumData = await getMediumData();
+
+const customArticles = getCustomArticles();
 
 const SOCIAL_MEDIA_LINKS = [
   {
@@ -95,6 +97,7 @@ const OTHER_PROJECT_LINKS = [
       </h2>
       <div class='flex flex-col gap-4 overflow-y-scroll'>
         {mediumData?.items?.map((props) => <MediumCard {...props} />)}
+        {customArticles?.items?.map((props) => <MediumCard {...props} />)}
       </div>
     </section>
     <div
@@ -134,7 +137,7 @@ const OTHER_PROJECT_LINKS = [
       </section>
       <section id='other-projects'>
         <Card className='bg-transparent border-none shadow-none'>
-          <h2 class='border-b-2 border-muted uppercase text-left mb-2'>
+          <h2 class='border-b-2 border-muted uppercase text-left m}b-2'>
             Other Projects
           </h2>
           <ul class='h-full flex flex-col justify-evenly gap-6 sm:gap-2 px-4'>

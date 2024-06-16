@@ -24,7 +24,7 @@ function MediumCard(props: MediumFeed['items'][number]) {
           {category?.map((tag) => (
             <Badge
               variant={'secondary'}
-              className='text-white bg-secondary text-xs whitespace-nowrap'
+              className='text-white bg-secondary text-xs whitespace-nowrap capitalize'
             >
               {tag}
             </Badge>

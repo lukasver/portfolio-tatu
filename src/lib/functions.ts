@@ -45,3 +45,36 @@ export const getMediumData = async (): Promise<MediumFeed | null> => {
   }
   return response || null;
 };
+
+export const getCustomArticles = () => {
+  const articles: Partial<MediumFeed> = {
+    status: 'ok',
+    items: [
+      {
+        author: 'Tania Geuna',
+        category: [
+          'Cryptocurrencies',
+          'Events',
+          'Ethereum',
+          'Web3',
+          'Defi',
+          'Brazil',
+        ],
+        content:
+          'The Smat team was present at Ethereum Rio 2022, a regional event with a global outlook that was celebrated last week, from 11th to 20th March, at Rio de Janeiro city in Brazil, including the Ethereum Foundation maximum conference.',
+        content_encoded:
+          'The Smat team was present at Ethereum Rio 2022, a regional event with a global outlook that was celebrated last week, from 11th to 20th March, at Rio de Janeiro city in Brazil, including the Ethereum Foundation maximum conference.',
+        title:
+          'Smat attended the first major crypto and DeFi conference in Latam',
+        thumbnail: '/eth-rio.webp',
+        link: 'https://www.linkedin.com/pulse/smat-attended-first-major-crypto-defi-conference-latam-smat-s-a/',
+        id: '1',
+        published: '2022-03-22T00:00:00.000Z',
+        enclosures: [],
+        media: {},
+        created: '2022-03-22T00:00:00.000Z',
+      },
+    ],
+  };
+  return articles;
+};
