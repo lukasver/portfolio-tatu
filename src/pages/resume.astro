@@ -5,6 +5,7 @@ import { Separator } from '@/components/ui/separator';
 import { FULL_NAME } from '@/config/consts';
 import Footer from '@/components/Footer.astro';
 import ThreeColsLayout from '@/layouts/ThreeColsLayout.astro';
+import { cn } from '@/lib/utils';
 
 const WORK_EXPERIENCE = [
   {
@@ -69,11 +70,12 @@ const SKILLS = [
   'Blockchain Technology',
   'Cryptocurrencies',
   'Microsoft Office',
-  'Pivot Tables',
+  // 'Pivot Tables',
+  'CRM',
   'Figma',
   'Notion',
   'Canva',
-  'Trello',
+  'Trello / Kanban',
 ];
 
 const ACADEMIC = [
@@ -105,8 +107,8 @@ const ACADEMIC = [
           {
             ACADEMIC.map(({ degree, uni, date }) => (
               <li class='flex flex-col gap-1'>
-                <div class='flex flex-row gap-2 items-center md:justify-end'>
-                  <i class='text-muted-foreground text-sm md:text-right'>
+                <div class='flex flex-col-reverse md:flex-row gap-2 md:items-center md:justify-end'>
+                  <i class='text-muted-foreground text-sm lg:text-right'>
                     {date}
                   </i>
                   <b class='md:text-right'>{degree}</b>
@@ -124,8 +126,10 @@ const ACADEMIC = [
         </h2>
         <ul class='grid grid-cols-2 gap-y-1 lg:gap-x-20'>
           {
-            SKILLS.map((skill) => (
-              <li class='md:text-right text-sm'>{skill}</li>
+            SKILLS.map((skill, i) => (
+              <li class={cn(i % 2 ? 'text-right' : 'lg:text-left', 'text-sm')}>
+                {skill}
+              </li>
             ))
           }
         </ul>
